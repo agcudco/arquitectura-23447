@@ -1,0 +1,42 @@
+
+spring:
+  application:
+    name: soap
+  datasource:
+    url: jdbc:postgresql://localhost:5432/db-api-soap
+    username: postgres
+    password: qwerty123
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+
+#Apache CXF exponga los servicios en /services/
+server:
+  servlet:
+    context-path: /
+  port: 8082
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${random.value}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,gateway
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+  level:
+    org.springframework.cloud.gateway: TRACE
+    org.springframework.web: TRACE
