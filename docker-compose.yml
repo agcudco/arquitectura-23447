@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  rabbitmq:
+    image: rabbitmq:4.1.2-management
+    container_name: rabbitmq_23447
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: admin
+      RABBITMQ_DEFAULT_PASS: admin
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    networks:
+      - internal-network
+
+  postgres:
+    image: postgres:latest
+    container_name: postgres_23447
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: qwerty123
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - internal-network
+    restart: unless-stopped
+
+volumes:
+  rabbitmq_data:
+  postgres_data:
+
+networks:
+  internal-network:
+    driver: bridge

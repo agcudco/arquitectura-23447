@@ -15,6 +15,7 @@
         <module>ms-api-gateway</module>
         <module>soap</module>
         <module>ms-openai</module>
+        <module>ms-notificaciones</module>
     </modules>
 
 </project>

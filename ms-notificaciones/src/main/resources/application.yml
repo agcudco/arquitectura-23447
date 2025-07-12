@@ -3,9 +3,9 @@ server:
 
 spring:
   application:
-    name: servicio-publicaciones
+    name: servicio-notificaciones
   datasource:
-    url: jdbc:postgresql://localhost:5432/publicaciones_db
+    url: jdbc:postgresql://localhost:5432/notificaciones_db
     username: postgres
     password: qwerty123
     driver-class-name: org.postgresql.Driver
@@ -18,6 +18,7 @@ spring:
         show_sql: true
         format_sql: true
         use_sql_comments: true
+
   rabbitmq:
     host: localhost
     port: 5672
@@ -47,10 +48,3 @@ logging:
   level:
     org.springframework.cloud.gateway: TRACE
     org.springframework.web: TRACE
-
-
-info:
-  app:
-    name: "ms-publicaciones"
-    version: "0.0.1"
-    author: "Geovanny Cudco"
