@@ -3,9 +3,12 @@ spring:
   application:
     name: soap
   datasource:
-    url: jdbc:postgresql://localhost:5432/db-api-soap
-    username: postgres
-    password: qwerty123
+    #url: jdbc:postgresql://localhost:5432/db-api-soap
+    #username: postgres
+    #password: qwerty123
+    url: jdbc:postgresql://localhost:26257/soap_db?user=root&password=
+    username: root
+    password:
   jpa:
     hibernate:
       ddl-auto: create-drop
@@ -15,7 +18,7 @@ spring:
 server:
   servlet:
     context-path: /
-  port: 8082
+  port: 0
 
 eureka:
   client:
